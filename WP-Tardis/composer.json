@@ -1,0 +1,16 @@
+{
+    "name": "WP Tardis",
+    "description": "Gestion des articles créer pas les agences d'Itga",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Mohammed Bensaad",
+            "email": "mohammed.bensaad@itga.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tardis\\": "src/Tardis/"
+        }
+    }
+}

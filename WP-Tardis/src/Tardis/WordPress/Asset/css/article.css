@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&subset=latin-ext');
+
+
+
+
+.titre-article {
+    font-family: 'Lato', sans-serif;
+    Font-Weight: 500;
+    Line-Height: 2rem;
+    color:rgba(0, 0, 0, 0.7) !important;
+    Vertical-Align: Middle;
+
+
+}
+
+.para-article{
+    font-size: 1em;
+    line-height: 1.25em;
+    text-align: justify;
+	
+
+}
+
+
+.more-label  {
+	
+	
+	float:right;
+
+}
+
+.more-label a {
+	font-family: 'Lato', sans-serif;
+	font-size: 1.25em;
+    line-height: 1em;
+	padding:2%;
+	color: #FFFFFF;
+ 	text-transform:uppercase;
+	float:right;
+
+}
+
+
+.btn-more-label{
+text-decoration: none;
+
+background-color: rgba(51, 122, 183, 1);
+border-radius: 1px;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border: 1px solid #4f81bd;
+
+}
+
+
+.btn-more-label :hover {
+
+color: #000000;
+background-color: #1f497d;
+border: 1px solid #1f497d;
+
+}
+
+
+
+ .btn-info a  {
+text-decoration: none;
+color:#ffffff;
+
+
+}
+
+
