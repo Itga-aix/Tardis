@@ -1,15 +1,12 @@
 <?php
-/**
- * Date: 15/06/2017
- * Time: 13:45
- */
+
 
 namespace Tardis\WordPress\Shorcode;
 
-class AgenceArticle {
+class AgenceAixenprovence {
     public function __construct()
     {
-        add_shortcode('Article-Agence', array($this, 'shortcode'));
+        add_shortcode('Agence-Aix-en-Provence', array($this, 'shortcode'));
     }
 
     /**
@@ -19,7 +16,7 @@ class AgenceArticle {
     {
         ob_start();
 global $post;
-$args = array( 'post_type'=> 'Actualites','posts_per_page' => 3 );
+$args = array( 'post_type'=> 'Actualites','posts_per_page' => 3, 'category_name' => 'aix-en-provence');
 $lastposts = get_posts( $args );
 foreach ( $lastposts as $post ) :
     setup_postdata( $post );

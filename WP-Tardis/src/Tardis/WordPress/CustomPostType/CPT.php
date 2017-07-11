@@ -14,7 +14,7 @@ class CPT{
             'public' => true,
             'label'  => __( 'Actualités des Agences', 'textdomain' ),
             'menu_icon' => 'dashicons-book',
-            'supports' => array('title',  'revisions',   'excerpt',  'thumbnail'),
+            'supports' => array('title',  'revisions',   'excerpt',  'thumbnail' ),
         );
         register_post_type( 'Actualites', $args );
     }
