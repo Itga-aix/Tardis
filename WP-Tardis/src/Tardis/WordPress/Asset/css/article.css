@@ -69,15 +69,3 @@ color:#ffffff;
 
 }
 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    background-color: red;
-}
-
-.flex-item {
-    -webkit-flex: 1 0 auto;
-    flex: 1 0 auto;
-}

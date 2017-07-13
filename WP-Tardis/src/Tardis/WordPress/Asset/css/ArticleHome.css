@@ -1,68 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-}
-
-/* line 22, C:/Users/mzb/Desktop/Scout-App/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
-html {
-    line-height: 1;
-}
-
-/* line 24, C:/Users/mzb/Desktop/Scout-App/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
-ol, ul {
-    list-style: none;
-}
-
-/* line 26, C:/Users/mzb/Desktop/Scout-App/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* line 28, C:/Users/mzb/Desktop/Scout-App/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
-caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: middle;
-}
-
-/* line 30, C:/Users/mzb/Desktop/Scout-App/bower_components/compass-mixins/lib/compass/reset/_utilities.scss */
-q, blockquote {
-    quotes: none;
-}
-
 
 .card {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    position: relative;
-    width: 320px;
-
-    margin-top: 1%;
-    margin-left: 2%;
-    transform: translateX -2% translatY(-2%);
-    background-color: #fff;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease-in-out;
+    font-size: 14px!important;
+    line-height: 1.4!important;
+    position: relative!important;
+    width: 250px!important;
+    margin-top: 1%!important;
+    margin-left: 1%!important;
+    transform: translateX -2% translatY(-2%)!important;
+    background-color: #fff !important;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)!important;
+    transition: box-shadow 0.3s ease-in-out!important;
+    float:left;
 }
 
 
@@ -72,42 +23,49 @@ q, blockquote {
 
 /* line 50, C:/laragon/www/CardUI/sass/screen.scss */
 .card:hover {
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3)!important;
 }
 
 
 .card__date {
+    font-size: 10px;
+    margin: 20px 20px 0 0;
+    padding: 12px 12px;
     position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #fff;
-    text-align: center;
-    line-height: 13px;
-    font-weight: bold;
-    width: 45px;
-    heigth: 45px;
-    background-color: #ef9636;
-    padding: 2%;
-    border-radius: 50%;
-}
+    text-transform: uppercase;
+    top:-27px;
+    z-index: 1;
+    }
 
 
 .card__date__day {
-    font-size: 14px;
+    font-size: 10px;
 }
 
 
 .card__date__month {
-    font-size: 10px;
+    position: absolute;
+text-align: center;
+    color: #fff !important;
+    background-color: #ef9636!important;
+    position: absolute;
     text-transform: uppercase;
+    left: 178px;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 12px 15px;
+    line-height: 15px;
+
+
 }
 
 
 .card__thumb {
-    height: 47%;
+    height: 150px;
     overflow: hidden;
     background-color: #000;
     transition: height 0.3s;
+    text-align: center;
 }
 
 
@@ -124,16 +82,14 @@ q, blockquote {
     transform: scale(1.2);
 }
 
-
 .card__body {
     position: relative;
     padding: 2%;
     margin: 7px 2px;
 }
 
-
 .card__category {
-    position: absolute;
+   position: absolute;
     left: -2;
     top: -30px;
     height: 23px;
@@ -147,23 +103,22 @@ q, blockquote {
 
 
 .card__liens {
-    position: relative;
-    left: 200px;
-    top: 1px;
-    color: #fff;
-    font-size: 11px;
-    line-height: 11px;
-    background-color: #ef761d;
-    padding: 2% 2%;
-    margin: 1%;
-    text-transform: uppercase;
+    position: relative !important;
+    left: 60%!important;
+    top: 1px!important;
+    color: #fff!important;
+    font-size: 11px!important;
+    line-height: 11px!important;
+    background-color: #ef761d!important;
+    padding: 2% 2%!important;
+    margin: 1%!important;
+    text-transform: uppercase !important;
 }
-
 
 .card__title {
-    margin: 0;
-    padding: 0 0 15px 0;
-    font-size: 20px;
-    color: #000;
-    font-weight: bold;
+    margin: 0 !important;
+    font-size: 20px!important;
+    color: #000!important;
+    font-weight: bold!important;
 }
+

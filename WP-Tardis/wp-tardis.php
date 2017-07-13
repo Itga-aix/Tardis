@@ -23,17 +23,19 @@ use Tardis\Interfaces;
 
 use Tardis\WordPress\Shorcode\AgenceArticle;
 use Tardis\WordPress\Shorcode\AgenceArticleHome;
-use Tardis\WordPress\Shorcode\AgenceAixenprovence;
+//use Tardis\WordPress\Shorcode\AgenceAixenprovence;
 use Tardis\WordPress\CustomPostType\CPT;
 use Tardis\WordPress\Taxonomy\Categorie;
+
 
 $actions =
   [
   new AgenceArticle(),
   new AgenceArticleHome(),
-  new AgenceAixenprovence(),
+  //new AgenceAixenprovence(),
   new CPT(),
   new Categorie(),
+
 
   ];
 

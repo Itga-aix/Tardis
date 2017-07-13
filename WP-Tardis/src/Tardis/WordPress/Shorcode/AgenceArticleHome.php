@@ -14,83 +14,94 @@ class AgenceArticleHome
     public function __construct()
     {
         add_shortcode('Agence-Home', array($this, 'Cybermen'));
+
     }
 
     public function Cybermen()
     {
-        $content ='
 
-<div class="row">
-   <div class="col-lg-4">
-   
+        ob_start();
+        global $post;
+        $args = array( 'post_type'=> 'Actualites', 'posts_per_page' => 3, 'order' => 'DESC','taxonomy' => 'categorie', );
+        $lastposts = get_posts( $args );
+      foreach ( $lastposts as $post ) : setup_postdata( $post );
+
+      // variable générale pour la boucle
+          $categories =  get_the_terms( $id, 'catégorie' );
+          $image = get_field('thumb');
+
+                // vars Image
+                $url = $image['url'];
+                $title = $image['title'];
+                $alt = $image['alt'];
+                $caption = $image['caption'];
+
+                // thumbnail
+                $size = 'medium_large';
+                $thumb = $image['sizes'][ $size ];
+                $width = $image['sizes'][ $size . '-width' ];
+                $height = $image['sizes'][ $size . '-height' ];
+
+
+
+                ?>
+
+
+
+
 <article  class="card">
 
-	<div class=" card__thumb">
-		<img src="http://lorempicsum.com/futurama/378/235/2">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class=" card__date">
+
+
+                <span class=" card__date__month"><?php echo get_the_date(); ?></span>
+
+            </div>
+	        <div class=" card__thumb">
+        <a href="<?php echo $url; ?>" title="<?php echo $title; ?>">
+
+            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+
+        </a>
 	</div>
 
-	<div class=" card__date">
-		<span class=" card__date__day">12</span>
-		<span class=" card__date__month">Mai</span>
-	</div>
+
 	<div class=" card__body">
-	
-		<div class=" card__category"> Photo, livre</div>
+          <?php
+          if (is_array($categories))
+          {
+           foreach( $categories  as $cat) {
+          ?>
+		<div class=" card__category"> <?php echo $cat->name; ?> </div>
+    <?php }}else
+          { ?>
+              <div class=" card__category"> Pas de catégorie </div>
+         <?php }?>
+		<h2 class=" card__title">  <a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h2>
+		<p class=" card__description"> <?php
 
-		<h2 class=" card__title"> Bender Should Not be Allowed on TV</h2>
-		<p class=" card__description"> Si vous pensez que le ticket ne doit pas être fermé ou si le ticket n\'a pas été résolu, merci de vous connecter à texte .</p>
-	    <a  class=" card__liens" href="#" > Lire la suite ></a></a>
+          $contenu =  get_field('contenu');
+            //substr — Retourne un segment de chaîne, dans ce cas 150 caractères.
+           echo substr( $contenu, 0,150 );
+            ?> </p>
+	    <a  class=" card__liens" href="<?php the_permalink(); ?>" > Lire la suite <span class="fa fa-chevron-right"></a></a>
+
 	</div>
+
+        </div>
+    </div>
+
+
 </article>
-  </div>
+
+<?php
 
 
-<div class="col-lg-4">
-   
-<article  class="card">
-
-	<div class=" card__thumb">
-		<img src="http://lorempicsum.com/futurama/378/235/2">
-	</div>
-
-	<div class=" card__date">
-		<span class=" card__date__day">12</span>
-		<span class=" card__date__month">Mai</span>
-	</div>
-	<div class=" card__body">
-	
-		<div class=" card__category"> Photo, livre</div>
-
-		<h2 class=" card__title"> Bender Should Not be Allowed on TV</h2>
-		<p class=" card__description"> Comment donner de l\'importance à certains mots de son texte .</p>
-	    <a  class=" card__liens" href="#" > Lire la suite ></a></a>
-	</div>
-</article>
- </div>
-
-<div class="col-lg-4">
- <article  class="card">
-	<div class=" card__thumb">
-		<img src="http://lorempicsum.com/futurama/378/235/2">
-	</div>
-	<div class=" card__date">
-		<span class=" card__date__day">12</span>
-		<span class=" card__date__month">Mai</span>
-	</div>
-	<div class=" card__body">
-		<div class=" card__category"> Photo, livre</div>
-		<h2 class=" card__title"> Bender Should Not be Allowed on TV</h2>
-		<p class=" card__description"></p>
-	    <a  class=" card__liens" href="#" > Lire la suite ></a></a>
-	</div>
-</article>
-</div>
-
- </div>
-
-';
-
-        return $content;
+       endforeach;
+        $myvariable = ob_get_clean();
+        return $myvariable;
     }
 
 }

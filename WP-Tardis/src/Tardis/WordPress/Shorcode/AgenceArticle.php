@@ -19,19 +19,40 @@ class AgenceArticle {
     {
         ob_start();
 global $post;
-$args = array( 'post_type'=> 'Actualites','posts_per_page' => 3 );
+$args = array( 'post_type'=> 'Actualites','posts_per_page' => 6 );
 $lastposts = get_posts( $args );
 foreach ( $lastposts as $post ) :
-    setup_postdata( $post );
+
+    $contenu = get_field('contenu');
     $image = get_field('thumb');
+    $image1 = get_field('thumb1');
+    $image2 = get_field('thumb2');
+    $image3 = get_field('thumb3');
+    $image4 = get_field('thumb4');
+    $image5 = get_field('thumb5');
+
+
+
     // vars
     $url = $image['url'];
     $title = $image['title'];
-    $alt = $image['alt'];
+    $alt1 = $image1['alt'];
+    $alt2 = $image2['alt'];
+    $alt3 = $image3['alt'];
+    $alt4 = $image4['alt'];
+    $alt5 = $image5['alt'];
+
     $caption = $image['caption'];
     // thumbnail
-    $size = 'medium';//thumbnail';
+    $size = 'thumbnail';
     $thumb = $image['sizes'][ $size ];
+    $thumb1 = $image1['sizes'][ $size ];
+    $thumb2 = $image2['sizes'][ $size ];
+    $thumb3 = $image3['sizes'][ $size ];
+    $thumb4 = $image4['sizes'][ $size ];
+    $thumb5 = $image5['sizes'][ $size ];
+
+  endforeach;
 
 
     ?>
@@ -124,9 +145,10 @@ foreach ( $lastposts as $post ) :
 
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
         <a href="<?php the_permalink() ?>" rel="bookmark"> </a>
+       <?php echo $contenu ?>
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Thumbnail Gallery</h1>
+            <h1 class="page-header">Thumbnail </h1>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <div  class="img-thumbnail"   >
                     <img id="myImg"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
@@ -134,27 +156,27 @@ foreach ( $lastposts as $post ) :
             </div>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <a class="img-thumbnail"   href="#"   >
-                    <img id="myImg2"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
+                    <img id="myImg2"  src="<?php echo $thumb1; ?>" alt="<?php echo $alt1; ?>"  />
                 </a>
             </div>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <a class="img-thumbnail"    href="#"   >
-                    <img id="myImg3"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
+                    <img id="myImg3"  src="<?php echo $thumb2; ?>" alt="<?php echo $alt2; ?>"  />
                 </a>
             </div>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <a class="img-thumbnail"     href="#"   >
-                    <img id="myImg"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
+                    <img id="myImg4"  src="<?php echo $thumb3; ?>" alt="<?php echo $alt3; ?>"  />
                 </a>
             </div>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <a class="img-thumbnail"    href="#"   >
-                    <img id="myImg"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
+                    <img id="myImg5"  src="<?php echo $thumb4; ?>" alt="<?php echo $alt4; ?>"  />
                 </a>
             </div>
             <div class="col-lg-4 col-md-3 col-xs-6 thumb">
                 <a class="img-thumbnail"     href="#"   >
-                    <img id="myImg"  src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>"  />
+                    <img id="myImg6"  src="<?php echo $thumb5; ?>" alt="<?php echo $alt5; ?>"  />
                 </a>
             </div>
         </div>
@@ -185,8 +207,7 @@ foreach ( $lastposts as $post ) :
         // Get the image and insert it inside the modal - use its "alt" text as a caption
         var img = document.getElementById('myImg');
         var modalImg = document.getElementById("img01");
-        var captionText = document.getElementById("caption");
-        img.onclick = function(){
+            img.onclick = function(){
             modal.style.display = "block";
             modalImg.src = this.src;
             captionText.innerHTML = this.alt;
@@ -196,7 +217,6 @@ foreach ( $lastposts as $post ) :
 
         var img2 = document.getElementById('myImg2');
         var modalImg = document.getElementById("img02");
-
         img2.onclick = function(){
             modal.style.display = "block";
             modalImg.src = this.src;
@@ -219,8 +239,8 @@ foreach ( $lastposts as $post ) :
         }
     </script>
 
-<?php endforeach;
-wp_reset_postdata();
+<?php
+
             $myvariable = ob_get_clean();
             return $myvariable;
 }
